@@ -1,0 +1,16 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*
+	Rounded address and search bars
+
+	This file is released into the public domain.
+ */
+#urlbar, #urlbar-background, #urlbar-input-container {
+	border-radius: calc(var(--urlbar-toolbar-height) / 2) !important;
+}
+#urlbar-input-container > box[role="button"]:focus-within {
+	outline-offset: -6px;
+}
+#searchbar {
+	border-radius: 15px !important;
+}
