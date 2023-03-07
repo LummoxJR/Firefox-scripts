@@ -16,11 +16,9 @@
 	this script wants the altered behavior, browser.urlbar.oneOffSearches
 	defaults to false instead of true once this script is installed.
 
-	This script is meant to work with xiaoxiaoflood's userscript loader:
+	Last tested with Firefox 111
 
-	https://github.com/xiaoxiaoflood/firefox-scripts
-
-	I release this code to the public domain.
+	This file is released into the public domain.
  */
 
 UC.removeUrlbarSearchOneOffs = {
