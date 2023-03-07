@@ -28,6 +28,14 @@ I hate the blocky look of the URL bar and search bar. This changes them, and als
 
 Separates the reload button and the stop button into two different buttons, like they're supposed to be.
 
+#### Short Tabs
+
+Makes the tabs shorter, because by default their height is excessive.
+
+#### Tab Contrast
+
+Improves the contrast of tabs against various theme backgrounds.
+
 ### Userscripts
 
 These scripts require a boot loader like the one listed above, not just the enabling of userChrome.css. The loader should recognize these files and load them as long as they're included in the `chrome` directory under your profile.
