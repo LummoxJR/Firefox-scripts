@@ -95,7 +95,7 @@ UC.hideOneTab = {
 			display = _uc.createElement(doc, 'toolbaritem', {id: this.DISPLAY_ID, removable: false});
 			let menubar = doc.getElementById('toolbar-menubar');
 			let spacer = menubar.querySelector('spacer:last-of-type');
-			display.style.setProperty('-moz-box-ordinal-group', win.getComputedStyle(spacer).getPropertyValue('-moz-box-ordinal-group'));
+			display.style.setProperty('order', win.getComputedStyle(spacer).getPropertyValue('order')-0+1);
 			menubar.insertBefore(display, spacer.nextSibling);
 
 			let throbber, newtab;
@@ -261,6 +261,11 @@ UC.hideOneTab = {
 
 #${this.DISPLAY_ID} {
 	--toolbarbutton-inner-padding: 0;
+	display: inline-flex;
+}
+
+#${this.DISPLAY_ID} > * {
+	vertical-align: middle;
 }
 
 *:root:not([customizing="true"]) #${this.DISPLAY_ID}[hidden] {visibility: collapse;}
@@ -274,6 +279,14 @@ UC.hideOneTab = {
 #${this.THROBBER_ID}[busy] image {
 	opacity: 1;
 	animation: hideonetab-spin 0.5s linear infinite;
+}
+
+#${this.MEDIA_ID} {
+	display: inline-block;
+}
+
+#${this.MEDIA_ID} > * {
+	vertical-align: middle;
 }
 
 
