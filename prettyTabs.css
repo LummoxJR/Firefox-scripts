@@ -156,7 +156,7 @@
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: var(--toolbar-field-color);
+	background: var(--lwt-tab-text, var(--toolbar-color));
 	content: ' ';
 	clip-path: polygon(
 		/* outer curve (we don't need a whole curve) */
