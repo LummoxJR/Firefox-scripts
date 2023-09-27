@@ -60,7 +60,6 @@ UC.tabsOnBottom = {
 #tabs-on-bottom {
 	min-height: 0 !important;
 	background-color: var(--toolbar-bgcolor) !important;
-	display: -moz-box;
 	-moz-box-orient: vertical;
 }
 #tabs-on-bottom #tab-notification-deck {
