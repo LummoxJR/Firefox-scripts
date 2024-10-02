@@ -28,6 +28,7 @@
 	--tab-curve: 10px;			/* Default that will get overwritten */
 	--tab-curve-pct: 0.5;		/* User-defined "slope" to each tab curve; higher values give a shallower tab slope */
 	--tab-border-inset: -1px;	/* Rounding errors actually make this a nice border that looks how you would expect 1px to look */
+	--inline-tab-padding: 6px;
 }
 
 .tabbrowser-tab {

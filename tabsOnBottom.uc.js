@@ -42,8 +42,12 @@ UC.tabsOnBottom = {
 		if(this.enabled) {
 			pnode = doc.querySelector('#tabs-on-bottom');
 			if(!pnode) win.gNavToolbox.appendChild(pnode = _uc.createElement(doc, 'toolbar', {id: 'tabs-on-bottom'}));
+			doc.documentElement.setAttribute('tabsOnBottom','true');
 		}
-		else pnode = doc.querySelector('#titlebar');
+		else {
+			pnode = doc.querySelector('#titlebar');
+			doc.documentElement.removeAttribute('tabsOnBottom');
+		}
 		let tabs = doc.querySelector('#TabsToolbar');
 		let notify = doc.querySelector('#tab-notification-deck');
 		let template = doc.querySelector('#tab-notification-deck-template');
@@ -76,6 +80,9 @@ UC.tabsOnBottom = {
 #tabs-on-bottom notification-message[style*="opacity"] {
 	display: none !important;
 }
+
+/* Toolbox bottom border looks stupid with tabs on bottom */
+:root[tabsOnBottom] toolbox#navigator-toolbox {border-bottom-width: 0 !important;}
 
 /*
 	The .container class inside a notification message's shadow DOM has a
