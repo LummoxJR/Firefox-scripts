@@ -8,7 +8,7 @@
 // ==/UserScript==
 
 /*
-	Last tested with Firefox 111
+	Last tested with Firefox 132
 
 	This file is released into the public domain.
  */
