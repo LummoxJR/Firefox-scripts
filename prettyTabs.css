@@ -48,47 +48,14 @@
 .tabbrowser-tab:last-of-type {margin-right: calc(var(--tab-curve) * -0.5) !important;}
 
 /*
-	Tab orientation scenarios:
+	The selected tab is in front of all others.
 
-	T = ordinary non-focused tab
-	F = focused tab
-	X = tab this style applies to (if not F)
-	! = Beginning or end
+	Any tabs to the left are overlapped by the tab to their right.
 
-	!XT, !XF, TXT, TXF:
-		X's left edge is normal
-		X's right edge tucks under so F can overlap
-	FXT:
-		X's left edge and right edge tuck over so F and T both overlap
-	FX!
-		X's left edge tucks under so F can overlap
-		X's right edge is normal
-	!X!, TX!, F
-		X's left and right edges are normal
+	Any tabs to the right are overlapped by the tab to their left.
  */
 
-.tabbrowser-tab[visuallyselected],
-.tabbrowser-tab:first-of-type:last-of-type,
-.tabbrowser-tab:not([visuallyselected]) + .tabbrowser-tab:last-of-type {
-	/* Show normal left and right edges */
-	clip-path: polygon(
-		0 100%,
-		calc(var(--tab-curve) * 0.25) 98%,
-		calc(var(--tab-curve) * 0.5) 90%,
-		calc(var(--tab-curve) * 1.5) 10%,
-		calc(var(--tab-curve) * 1.75) 2%,
-		calc(var(--tab-curve) * 2) 0,
-		calc(100% - (var(--tab-curve) * 2)) 0,
-		calc(100% - (var(--tab-curve) * 1.75)) 2%,
-		calc(100% - (var(--tab-curve) * 1.5)) 10%,
-		calc(100% - (var(--tab-curve) * 0.5)) 90%,
-		calc(100% - (var(--tab-curve) * 0.25)) 98%,
-		100% 100%
-	);
-}
-
-.tabbrowser-tab:first-of-type:not([visuallyselected]):not(:last-of-type),
-.tabbrowser-tab:not([visuallyselected]) + .tabbrowser-tab:not([visuallyselected]):not(:last-of-type) {
+.tabbrowser-tab {
 	/* Tab to the right overlaps this one */
 	clip-path: polygon(
 		0 100%,
@@ -107,7 +74,26 @@
 	);
 }
 
-.tabbrowser-tab[visuallyselected] + .tabbrowser-tab:last-of-type {
+.tabbrowser-tab[visuallyselected],
+.tabbrowser-tab:first-of-type:last-of-type {
+	/* Show normal left and right edges */
+	clip-path: polygon(
+		0 100%,
+		calc(var(--tab-curve) * 0.25) 98%,
+		calc(var(--tab-curve) * 0.5) 90%,
+		calc(var(--tab-curve) * 1.5) 10%,
+		calc(var(--tab-curve) * 1.75) 2%,
+		calc(var(--tab-curve) * 2) 0,
+		calc(100% - (var(--tab-curve) * 2)) 0,
+		calc(100% - (var(--tab-curve) * 1.75)) 2%,
+		calc(100% - (var(--tab-curve) * 1.5)) 10%,
+		calc(100% - (var(--tab-curve) * 0.5)) 90%,
+		calc(100% - (var(--tab-curve) * 0.25)) 98%,
+		100% 100%
+	);
+}
+
+.tabbrowser-tab[visuallyselected] ~ .tabbrowser-tab {
 	/* Tab to the left overlaps this one */
 	clip-path: polygon(
 		calc(var(--tab-curve) * 2.5) 100%,
@@ -123,26 +109,6 @@
 		calc(100% - (var(--tab-curve) * 0.5)) 90%,
 		calc(100% - (var(--tab-curve) * 0.25)) 98%,
 		100% 100%
-	);
-}
-
-.tabbrowser-tab[visuallyselected] + .tabbrowser-tab:not(:last-of-type) {
-	/* Tabs to the left and right both overlap this one */
-	clip-path: polygon(
-		calc(var(--tab-curve) * 2.5) 100%,
-		calc(var(--tab-curve) * 2.25) 98%,
-		calc(var(--tab-curve) * 2) 90%,
-		calc(var(--tab-curve) * 1.25) 30%,
-		calc(var(--tab-curve) * 1.5) 10%,
-		calc(var(--tab-curve) * 1.75) 2%,
-		calc(var(--tab-curve) * 2) 0,
-		calc(100% - (var(--tab-curve) * 2)) 0,
-		calc(100% - (var(--tab-curve) * 1.75)) 2%,
-		calc(100% - (var(--tab-curve) * 1.5)) 10%,
-		calc(100% - (var(--tab-curve) * 1.25)) 30%,
-		calc(100% - (var(--tab-curve) * 2)) 90%,
-		calc(100% - (var(--tab-curve) * 2.25)) 98%,
-		calc(100% - (var(--tab-curve) * 2.5)) 100%
 	);
 }
 
