@@ -74,10 +74,13 @@ UC.hideOneTab = {
 	},
 
 	exec: function(win) {
+		const {console} = win;
+	    //console.log('hideOneTab exec',win.document,win);
 		if(!this.observer) {
 			try {this.observer = new MutationObserver(this.observerCallback.bind(this));}
 			catch(_) {console.log(_);}
 		}
+	    //console.log('hideOneTab: has observer');
 
 		let doc = win.document;
 		let toolbar = doc.querySelector('#TabsToolbar');
@@ -178,7 +181,7 @@ UC.hideOneTab = {
 		let {observer} = this;
 		if(!observer) {
 			try {this.observer = new win.MutationObserver(this.observerCallback.bind(this));}
-			catch(_) {console.log(_);}
+			catch(_) {win.console.log(_);}
 			observer = this.observer;
 			if(!observer) return;
 		}

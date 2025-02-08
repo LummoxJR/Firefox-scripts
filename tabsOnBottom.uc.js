@@ -32,13 +32,13 @@ UC.tabsOnBottom = {
 	},
 
 	exec: function(win) {
-		console.log('tabsOnBottom exec',win.document,win);
+		//win.console.log('tabsOnBottom exec',win.document,win);
 		this.moveTabs(win.document,win);
 	},
 
 	moveTabs: function(doc,win) {
 		let pnode;
-		console.log('moveTabs', this.enabled);
+		//win.console.log('moveTabs', this.enabled);
 		if(this.enabled) {
 			pnode = doc.querySelector('#tabs-on-bottom');
 			if(!pnode) win.gNavToolbox.appendChild(pnode = _uc.createElement(doc, 'toolbar', {id: 'tabs-on-bottom'}));

@@ -16,9 +16,11 @@
 	this script wants the altered behavior, browser.urlbar.oneOffSearches
 	defaults to false instead of true once this script is installed.
 
-	Last tested with Firefox 111
+	This script is meant to work with xiaoxiaoflood's userscript loader:
 
-	This file is released into the public domain.
+	https://github.com/xiaoxiaoflood/firefox-scripts
+
+	I release this code to the public domain.
  */
 
 UC.removeUrlbarSearchOneOffs = {
@@ -30,7 +32,7 @@ UC.removeUrlbarSearchOneOffs = {
 
 	init: function() {
 		xPref.set(this.PREF_SHOW, false, true);
-		let {UrlbarSearchOneOffs} = ChromeUtils.import("resource:///modules/UrlbarSearchOneOffs.jsm");
+		let {UrlbarSearchOneOffs} = ChromeUtils.importESModule("resource:///modules/UrlbarSearchOneOffs.sys.mjs");
 		let oldfn = UrlbarSearchOneOffs.prototype.enable;
 		let noop = function(){};
 
@@ -51,6 +53,7 @@ UC.removeUrlbarSearchOneOffs = {
 			url: Services.io.newURI('data:text/css;charset=UTF-8,' + encodeURIComponent(`
 				@-moz-document url('${_uc.BROWSERCHROME}') {
 					#urlbar .search-one-offs, #urlbar .search-panel-one-offs-container, .urlbarView-row[type=search] {display: none !important;}
+					#urlbar-searchmode-switcher {width: 0 !important; visibility: hidden !important;}
 				}
 			`)),
 			type: _uc.sss.USER_SHEET
